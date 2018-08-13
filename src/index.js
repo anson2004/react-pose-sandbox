@@ -7,14 +7,10 @@ import icons from "./icon.png";
 import "./styles.css";
 
 const iconDiv = ({ hostRef }) => {
-  return (
-    <div ref={hostRef}>
-      <img src={icons} height="100" width="100" />
-    </div>
-  );
+  return <div ref={hostRef} />;
 };
 
-const Box = posed(iconDiv)({
+const Box = posed.div({
   attention: {
     scale: 1.1,
     transition: {
@@ -54,10 +50,9 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <Box
-          style={{ backgroundColor: "yellow", width: 120, height: 120 }}
-          pose={this.state.isAttention}
-        />
+        <Box style={{ width: 120, height: 120 }} pose={this.state.isAttention}>
+          <img src={icons} height="100" width="100" />
+        </Box>
         <h1>{this.state.scanCount}</h1>
       </div>
     );
